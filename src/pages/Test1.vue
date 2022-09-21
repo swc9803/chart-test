@@ -1,32 +1,65 @@
 <template>
-  <div>
-    <canvas ref="chart1" width="400" height="300"></canvas>
+  <div class="container">
+    <div class="section">
+      <h1 class="title">chart1</h1>
+      <div class="articleWrap">
+        <div class="box">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+          exercitationem at minus, unde eos dolorem totam molestiae, laboriosam
+          eveniet cum voluptatum autem maxime modi! Consectetur voluptatibus
+          nihil aliquid. Hic, minus!
+        </div>
+        <div class="chart">
+          <Test1Chart />
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h1 class="title">chart1</h1>
+      <div class="articleWrap">
+        <div class="box">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+          exercitationem at minus, unde eos dolorem totam molestiae, laboriosam
+          eveniet cum voluptatum autem maxime modi! Consectetur voluptatibus
+          nihil aliquid. Hic, minus!
+        </div>
+        <div class="chart">
+          <Test1Chart />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { Chart, registerables } from "chart.js";
-const chart1 = ref();
-Chart.register(...registerables);
-
-onMounted(() => {
-  const ctx = chart1.value.getContext("2d") as HTMLCanvasElement;
-  new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-        {
-          label: "test dataset",
-          backgroundColor: "rgb(255, 99, 132)",
-          borderColor: "rgb(255, 99, 132)",
-          data: [0, 10, 5, 2, 20, 30, 40],
-        },
-      ],
-    },
-    options: {},
-  });
-});
+import Test1Chart from "@/components/Test1Chart.vue";
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container {
+  width: 70%;
+  min-width: 700px;
+  margin: 0 auto;
+  .section {
+    border: 2px solid black;
+    padding: 1%;
+    margin-bottom: 20px;
+    .title {
+      margin: 0;
+    }
+    .articleWrap {
+      display: flex;
+      .box {
+        flex: 1 1 0;
+        width: 50%;
+        background: silver;
+        padding: 1%;
+      }
+      .chart {
+        flex: 2 1 0;
+        width: 50%;
+        border: 1px solid black;
+      }
+    }
+  }
+}
+</style>
